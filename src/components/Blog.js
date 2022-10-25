@@ -3,7 +3,7 @@ import React from 'react';
 const Blog = () => {
     return (
         <section>
-            <h3 className='text-2xl text-center text-purple-600'>Welcome to my Blog Component</h3>
+            <h3 className='text-2xl text-center text-purple-600 mt-3 mb-4'>Welcome to my Blog Component</h3>
             <div className='p-5'>
                 <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
                 <div className="collapse-title text-xl font-medium">
