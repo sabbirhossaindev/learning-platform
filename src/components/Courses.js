@@ -10,6 +10,7 @@ const Courses = () => {
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
+    
     return (
         <div className='flex justify-center items-center min-h-screen bg-indigo-500'>
             <div className='flex-1 max-w-5xl p-8'>

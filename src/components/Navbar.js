@@ -34,6 +34,7 @@ const Navbar = () => {
                 <li><Link to='/courses' className='mr-5 hover:text-gray-900'>Courses</Link></li>
                 <li><Link to='/faq' className='mr-5 hover:text-gray-900'>FAQ</Link></li>
                 <li><Link to='/blog' className='mr-5 hover:text-gray-900'>Blog</Link></li>
+                <li><Link to='/register' className='mr-5 hover:text-gray-900'>Register</Link></li>
 
                     {user?.email ? (
                         <>
@@ -102,6 +103,7 @@ const Navbar = () => {
                             <li><Link to='/courses' className='mr-5 hover:text-gray-900'>Courses</Link></li>
                             <li><Link to='/faq' className='mr-5 hover:text-gray-900'>FAQ</Link></li>
                             <li><Link to='/blog' className='mr-5 hover:text-gray-900'>Blog</Link></li>
+                            <li><Link to='/register' className='mr-5 hover:text-gray-900'>Register</Link></li>
                             
                             {user?.email ? (
                                 <>
