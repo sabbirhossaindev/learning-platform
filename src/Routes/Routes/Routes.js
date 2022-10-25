@@ -10,7 +10,7 @@ export const routes = createBrowserRouter([
         element: <Main></Main>,
         children: [
             {
-                path: '/',
+                path: '/home',
                 element: <Home></Home>,
                 loader: () => fetch('https://dragon-news-server-ochre-kappa.vercel.app/news')
             },
@@ -22,7 +22,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses/:id',
                 element: <Courses></Courses>
-            }
+            },
+            {
+                path: '/courses',
+                element: <Courses></Courses>
+            },
         ]
     }
 ])
