@@ -1,11 +1,11 @@
 import React from 'react';
 
-const FAQ = () => {
+const Footer = () => {
     return (
         <div>
-            <h2>This is FAQ compo</h2>
+            <h2>Footer</h2>
         </div>
     );
 };
 
-export default FAQ;
+export default Footer;
