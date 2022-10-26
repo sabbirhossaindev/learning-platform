@@ -5,6 +5,11 @@ import Category from "../../Pages/Category/Category";
 import Courses from "../../Pages/Courses/Courses";
 import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
+import CourseDetails from "../../Pages/Shared/CourseDetails/CourseDetails";
+import Login from "../../Pages/Shared/Login/Login/Login";
+import Register from "../../Pages/Shared/Login/Register/Register";
+import NotFound from "../../Pages/Shared/NotFound/NotFound";
+import RightSideNav from "../../Pages/Shared/RightSideNav/RightSideNav";
 
 export const routes = createBrowserRouter([
     {
@@ -20,17 +25,19 @@ export const routes = createBrowserRouter([
                 element: <Home></Home>,
             },
             {
-                path: '/category/:id',
-                element: <Category></Category>,
-                // loader: ({ params }) => fetch(`https://dragon-news-server-ochre-kappa.vercel.app/category/${params.id}`)
-            },
-            {
-                path: '/courses/:id',
-                element: <Courses></Courses>
+                path: 'rightsidenav',
+                element: <RightSideNav></RightSideNav>,
+                loader: () => fetch('http://localhost:5000/course_details/5')
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>
+                element: <Courses></Courses>,
+                loader: () => fetch('http://localhost:5000/courses')
+            },
+            {
+                path: '/course/:id',
+                element: <CourseDetails></CourseDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
             },
             {
                 path: '/blog',
@@ -40,6 +47,18 @@ export const routes = createBrowserRouter([
                 path: '/faq',
                 element: <FAQ></FAQ>
             },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: 'register',
+                element: <Register></Register>
+            },
+            {
+                path: '*',
+                element: <NotFound></NotFound>
+            }
         ]
     }
 ])
