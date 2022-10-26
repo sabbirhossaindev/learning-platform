@@ -1,9 +1,11 @@
 import React from 'react';
+import notFound from '../../../assets/not-found.gif'
+import './NotFound.css';
 
 const NotFound = () => {
     return (
-        <div>
-            <h1>Page not found 404</h1>
+        <div className='text-center p-2'>
+            <img src={notFound} alt="" className='not-fund'/>
         </div>
     );
 };
