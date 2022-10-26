@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
+import Blog from "../../Pages/Blog/Blog";
 import Category from "../../Pages/Category/Category";
 import Courses from "../../Pages/Courses/Courses";
+import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 
 export const routes = createBrowserRouter([
@@ -10,9 +12,12 @@ export const routes = createBrowserRouter([
         element: <Main></Main>,
         children: [
             {
+                path: '/',
+                element: <Home></Home>,
+            },
+            {
                 path: '/home',
                 element: <Home></Home>,
-                loader: () => fetch('https://dragon-news-server-ochre-kappa.vercel.app/news')
             },
             {
                 path: '/category/:id',
@@ -26,6 +31,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
             },
         ]
     }

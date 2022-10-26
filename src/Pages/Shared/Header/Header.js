@@ -23,14 +23,16 @@ const Header = () => {
 
     return (
         <section>
-            <Navbar collapseOnSelect className='mb-4' expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect className='mb-4' bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand><Link to='/'className='web-name'><img src={logo} alt="" className='logo mx-2' /> Awesome Courses</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto gap-4">
-                        <Link className='link' href="/home">Home</Link>
-                        <Link className='link' href="/Courses">Courses</Link>  
+                        <Link className='link' to="/home">Home</Link>
+                        <Link className='link' to="/Courses">Courses</Link>  
+                        <Link className='link' to="/blog">Blog</Link>
+                        <Link className='link' to="/faq">FAQ</Link>  
                     </Nav>
                     <Nav>
                         {/* <>
