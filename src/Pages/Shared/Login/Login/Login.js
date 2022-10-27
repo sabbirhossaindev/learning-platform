@@ -3,17 +3,15 @@ import React, { useContext, useState } from 'react';
 import { ButtonGroup, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import {FcGoogle} from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
-    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState('');
-    const { signIn, setLoading } = useContext(AuthContext);
+    const { user, signIn, setLoading } = useContext(AuthContext);
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
@@ -64,7 +62,8 @@ const Login = () => {
     };
 
     if (user) {
-        navigate(from, {replace: true})
+        console.log(user);
+        return navigate(from, {replace: true})
     }
     return (
         <Container className='mx-auto'>

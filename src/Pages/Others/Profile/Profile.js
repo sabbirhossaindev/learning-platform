@@ -4,17 +4,35 @@ import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Profile = () => {
-    const {user} = useContext(AuthContext);
+    
+    const {user, signIn, setLoading} = useContext(AuthContext);
     const [name, setName] = useState(user.displayName);
+    const [error, setError] = useState('');
     const photoURLRef = useRef(user.photoURL);
 
     const handleSubmit = event => {
         event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
         console.log(photoURLRef.current.value);
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                form.reset();
+            })
+            .catch(error => {
+                console.log(error);
+                setError(error.message);
+            })
     }
 
     const handleNameChange = event =>{
         setName(event.target.value)
+        
     }
 
     return (

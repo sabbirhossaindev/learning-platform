@@ -29,17 +29,16 @@ export const routes = createBrowserRouter([
             {
                 path: 'rightsidenav',
                 element: <RightSideNav></RightSideNav>,
-                // loader: () => fetch('http://localhost:5000/course_details/5')
             },
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://b610-lerning-platform-server-side-sabbirvai.vercel.app/courses')
             },
             {
                 path: '/course/:id',
                 element: <PrivateRouter><CourseDetails></CourseDetails></PrivateRouter>,
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({params}) => fetch(`https://b610-lerning-platform-server-side-sabbirvai.vercel.app/course/${params.id}`)
             },
             {
                 path: '/blog',
