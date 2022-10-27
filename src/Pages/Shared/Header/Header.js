@@ -32,9 +32,10 @@ const Header = () => {
                         <Link className='link' to="/Courses">Courses</Link>  
                         <Link className='link' to="/blog">Blog</Link>
                         <Link className='link' to="/faq">FAQ</Link>
-                        <button><CiLight className='link'></CiLight></button>
+                        <CiLight className='link bg-white mt-1'></CiLight>
                     </Nav>
                     <Nav className='ms-auto gap-4'>
+                        
                         <>
                                 
                             {

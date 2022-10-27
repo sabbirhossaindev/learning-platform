@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { ButtonGroup, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import {FcGoogle} from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
@@ -86,7 +86,10 @@ const Login = () => {
                     <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary"><FcGoogle></FcGoogle>  Login With Google</Button>
                     <Button onClick={handleGithubSignIn} variant="outline-dark"><FaGithub></FaGithub>  Login With Github</Button>
                 </ButtonGroup>
-
+                
+                <div className='mt-3'>
+                    <Link to='/register'>Please register</Link>
+                </div>
                 <Form.Text className="text-danger">
                     <div>
                         {error}
