@@ -1,4 +1,7 @@
 .not-fund{
-    width: 430px;
-    height: 430px;
+    width: 380px;
+    height: 380px;
+}
+.link{
+    text-decoration: none;
 }

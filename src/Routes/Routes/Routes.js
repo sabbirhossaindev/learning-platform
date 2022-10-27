@@ -5,6 +5,7 @@ import Category from "../../Pages/Category/Category";
 import Courses from "../../Pages/Courses/Courses";
 import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
+import Profile from "../../Pages/Others/Profile/Profile";
 import CourseDetails from "../../Pages/Shared/CourseDetails/CourseDetails";
 import Login from "../../Pages/Shared/Login/Login/Login";
 import Register from "../../Pages/Shared/Login/Register/Register";
@@ -55,6 +56,10 @@ export const routes = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: '/profile',
+                element: <PrivateRouter><Profile></Profile></PrivateRouter>
             },
             {
                 path: '*',

@@ -17,6 +17,7 @@ const Register = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
         // console.log(name, email, password);
@@ -28,7 +29,7 @@ const Register = () => {
             form.reset();
             setError('')
             navigate('/')
-            handleUpdateUserProfile(name);
+            handleUpdateUserProfile(name, photoURL);
             handleEmailVerification();
             toast.success('Please verify your email address.')
         })
@@ -38,9 +39,10 @@ const Register = () => {
         });
     }
 
-    const handleUpdateUserProfile = (name) => {
+    const handleUpdateUserProfile = (name, photoURL) => {
         const profile = {
             displayName: name,
+            photoURL: photoURL
         }
         updateUserProfile(profile)
             .then(() => { })
@@ -66,6 +68,11 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Your Name</Form.Label>
                     <Form.Control name="name" type="text" placeholder="Your Name" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Photo URL</Form.Label>
+                    <Form.Control name="photoURL" type="text" placeholder="Phot URL" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">

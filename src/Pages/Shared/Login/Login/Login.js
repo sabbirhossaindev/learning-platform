@@ -1,10 +1,13 @@
+import { GoogleAuthProvider, GithubAuthProvider  } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { ButtonGroup, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
+import {FcGoogle} from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
 
@@ -14,6 +17,28 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
+
+    const { providerLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+        .catch(error => console.log(error))
+    }
+
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+        .catch(error => console.log(error))
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -61,6 +86,11 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control name="password" type="password" placeholder="Password" required />
                 </Form.Group>
+
+                <ButtonGroup vertical>
+                    <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary"><FcGoogle></FcGoogle>  Login With Google</Button>
+                    <Button onClick={handleGithubSignIn} variant="outline-dark"><FaGithub></FaGithub>  Login With Github</Button>
+                </ButtonGroup>
 
                 <Form.Text className="text-danger">
                     <div>
