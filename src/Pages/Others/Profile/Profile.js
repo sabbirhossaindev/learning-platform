@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Profile = () => {
     
-    const {user, signIn, setLoading} = useContext(AuthContext);
+    const {user, signIn} = useContext(AuthContext);
     const [name, setName] = useState(user.displayName);
     const [error, setError] = useState('');
     const photoURLRef = useRef(user.photoURL);
