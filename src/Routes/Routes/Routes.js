@@ -29,7 +29,7 @@ export const routes = createBrowserRouter([
             {
                 path: 'rightsidenav',
                 element: <RightSideNav></RightSideNav>,
-                loader: () => fetch('http://localhost:5000/course_details/5')
+                // loader: () => fetch('http://localhost:5000/course_details/5')
             },
             {
                 path: '/courses',

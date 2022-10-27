@@ -10,7 +10,7 @@ import {FcGoogle} from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
-
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const { signIn, setLoading } = useContext(AuthContext);
@@ -53,12 +53,6 @@ const Login = () => {
                 console.log(user);
                 setError('');
                 form.reset();
-                if (user.emailVerified) {
-                    navigate(from, { replace: true });
-                }
-                else {
-                    toast.error('Your email is not verified. Please verify your email address.')
-                }
             })
             .catch(error => {
                 console.log(error);
@@ -69,7 +63,9 @@ const Login = () => {
             });
     };
 
-
+    if (user) {
+        navigate(from, {replace: true})
+    }
     return (
         <Container className='mx-auto'>
             <Form onSubmit={handleSubmit}>
