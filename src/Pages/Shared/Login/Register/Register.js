@@ -10,7 +10,7 @@ const Register = () => {
 
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
-    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    const { createUser, updateUserProfile} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
@@ -30,7 +30,6 @@ const Register = () => {
             setError('')
             navigate('/')
             handleUpdateUserProfile(name, photoURL);
-            handleEmailVerification();
             toast.success('Please verify your email address.')
         })
         .catch(error => {
@@ -47,12 +46,6 @@ const Register = () => {
         updateUserProfile(profile)
             .then(() => { })
             .catch(error => console.error(error));
-    }
-
-    const handleEmailVerification  = () => {
-        verifyEmail()
-        .then(() =>{})
-        .catch(error => console.error(error));
     }
 
     const handleAccepted = (event) => {

@@ -62,9 +62,9 @@ const Login = () => {
     };
 
     if (user) {
-        console.log(user);
         return navigate(from, {replace: true})
     }
+
     return (
         <Container className='mx-auto'>
             <Form onSubmit={handleSubmit}>
